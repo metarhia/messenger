@@ -16,5 +16,6 @@ npm-debug.log
 
 # Build files
 /applications/messenger/client/build/
-/applications/messenger/static/
+/applications/messenger/static/*
+!/applications/messenger/static/favicon.ico
 webpack-assets.json
