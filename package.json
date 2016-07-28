@@ -1,0 +1,24 @@
+{
+  "name": "metarhia-messenger",
+  "version": "0.0.1",
+  "description": "Unopinionated messaging app built using the experimental stack of technologies",
+  "main": "server.js",
+  "scripts": {
+    "test": "node tests/run.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/metarhia/Messenger.git"
+  },
+  "author": "Alexey Orlenko <eaglexrlnk@gmail.com>",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/metarhia/Messenger/issues"
+  },
+  "homepage": "https://github.com/metarhia/Messenger#readme",
+  "private": true,
+  "dependencies": {
+    "impress": "^0.3.11",
+    "mongodb": "^2.2.4"
+  }
+}
