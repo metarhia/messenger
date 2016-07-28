@@ -24,7 +24,7 @@
     "mongodb": "^2.2.4"
   },
   "devDependencies": {
-    "assets-webpack-plugin": "github:kossnocorp/assets-webpack-plugin",
+    "assets-webpack-plugin": "github:aqrln/assets-webpack-plugin",
     "autoprefixer": "6.3.7",
     "babel-core": "6.10.4",
     "babel-eslint": "6.1.2",
