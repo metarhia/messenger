@@ -16,3 +16,5 @@ npm-debug.log
 
 # Build files
 /applications/messenger/client/build/
+/applications/messenger/static/
+webpack-assets.json
