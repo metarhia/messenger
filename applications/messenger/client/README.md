@@ -1,11 +1,11 @@
 Configuration files and scripts in this directory are based on Facebook's
 [create-react-app](https://github.com/facebookincubator/create-react-app).
 
-## Available Scripts
+### Available Scripts
 
 In the project directory, you can run:
 
-### `npm run dev`
+#### `npm run dev`
 
 Runs Webpack in the development mode.
 
@@ -14,7 +14,7 @@ Development assets are rsync'ed into the `static` directory.
 The page will reload automatically in Chrome on macOS if you make edits.
 You will also see any lint errors in the console.
 
-### `npm run build`
+#### `npm run build`
 
 Builds the app for production to the `build` folder.
 It correctly bundles React in production mode and optimizes the build for the best performance.
