@@ -1,5 +1,4 @@
 # Metarhia Messenger
-=======
 
 ## Installation
 
