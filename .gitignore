@@ -7,7 +7,7 @@ npm-debug.log
 *.log
 *.done
 
-# Development files
+# Development environments files
 /.idea/
 .*.swp
 
@@ -19,3 +19,6 @@ npm-debug.log
 /applications/messenger/static/*
 !/applications/messenger/static/favicon.ico
 webpack-assets.json
+
+# Deployment script
+/deploy.sh
