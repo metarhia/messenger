@@ -6,7 +6,7 @@
   cacheMaxFileSize: '10mb', // max file size to cache
   gzip: true, // default true
   preprocess: [
-    'js', // minify js
+    // 'js', // minify js
     // 'sass' // compile sass to css
   ]
 }

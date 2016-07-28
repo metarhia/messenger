@@ -1,12 +1,18 @@
+# NPM
 node_modules
 npm-debug.log
+
+# Impress
 /log/
-/test/
-/debug/
-/develop/
-/.idea/
 *.log
-crlf.js
 *.done
-.DS_Store
+
+# Development files
+/.idea/
 .*.swp
+
+# OS-specific
+.DS_Store
+
+# Build files
+/applications/messenger/client/build/

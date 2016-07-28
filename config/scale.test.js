@@ -13,5 +13,5 @@
   health: '5s',
   nagle: false,
   gc: 0,
-  watch: '2s'
+  watch: '1s'
 }
