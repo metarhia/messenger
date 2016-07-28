@@ -15,6 +15,7 @@ npm-debug.log
 .DS_Store
 
 # Build files
+/applications/messenger/www/html.template
 /applications/messenger/client/build/
 /applications/messenger/static/*
 !/applications/messenger/static/favicon.ico

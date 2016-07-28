@@ -8,7 +8,7 @@ var webpack = require('webpack');
 var config = require('../config/webpack.config.dev');
 var execSync = require('child_process').execSync;
 var opn = require('opn');
-var copyFavicon = require('./copyFavicon');
+var placeFiles = require('./placeFiles');
 
 var buildDir = path.join(__dirname, '../build');
 var staticDir = path.join(__dirname, '../../static');
@@ -134,13 +134,13 @@ var firstCompile = true;
 compiler.watch({
   aggregateTimeout: 300
 }, function(err, stats) {
-  if (!err && !stats.hasErrors()) {
-    copyFavicon(function() {
-      execSync('rsync -a --delete ' + buildDir + '/ ' + staticDir);
-    });
+  if (err || stats.hasErrors()) {
+    return;
   }
-  setTimeout(function() {
-    openBrowser(!firstCompile);
-    firstCompile = false;
-  }, 2000);
+  placeFiles(function() {
+    setTimeout(function() {
+      openBrowser(!firstCompile);
+      firstCompile = false;
+    }, 2000);
+  });
 });

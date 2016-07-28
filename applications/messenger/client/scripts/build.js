@@ -6,7 +6,7 @@ var childProcess = require('child_process');
 var path = require('path');
 var webpack = require('webpack');
 var config = require('../config/webpack.config.prod');
-var copyFavicon = require('./copyFavicon');
+var placeFiles = require('./placeFiles');
 
 var buildDir = path.join(__dirname, '../build');
 var staticDir = path.join(__dirname, '../../static');
@@ -20,8 +20,7 @@ webpack(config).run(function(err, stats) {
     process.exit(1);
   }
 
-  copyFavicon(function() {
-    childProcess.execSync('rsync -a --delete ' + buildDir + '/ ' + staticDir);
+  placeFiles(function() {
     console.log('The bundle is optimized and ready to be deployed to production.');
   });
 });
