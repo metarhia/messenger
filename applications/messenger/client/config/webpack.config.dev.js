@@ -15,7 +15,10 @@ var buildPath = path.join(__dirname, '../build');
 
 module.exports = {
   devtool: 'source-map',
-  entry: path.join(srcPath, 'index'),
+  entry: [
+    'babel-polyfill',
+    path.join(srcPath, 'index')
+  ],
   watch: true,
   output: {
     path: buildPath,
