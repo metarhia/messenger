@@ -2,6 +2,7 @@
 
 global.api = {};
 api.jstp = {};
+api.url = require('url');
 api.readline = require('readline');
 api.metasync = require('metasync');
 
@@ -45,13 +46,14 @@ var commands = {
   }
 };
 
-var address = process.argv[2] || '127.0.0.1:3000',
-    parsedAddress = address.split(':'),
-    host = parsedAddress[0],
-    port = parsedAddress[1];
+var address = process.argv[2] || 'jstp://127.0.0.1:3000',
+    parsedAddress = api.url.parse(address),
+    host = parsedAddress.hostname,
+    port = parsedAddress.port,
+    secure = parsedAddress.protocol === 'jstps:';
 
 console.log('Waiting for connection...');
-connection = api.jstp.connect('messenger', host, port);
+connection = api.jstp.connect('messenger', host, port, secure);
 
 connection.application = {};
 connection.application.api = {
