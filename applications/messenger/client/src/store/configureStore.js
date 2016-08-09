@@ -12,6 +12,8 @@ export default function configureStore(initialState) {
     middleware.push(createLogger());
   }
 
+  console.log(...rootReducer);
+
   return createStore(
     combineReducers({
       ...rootReducer,
