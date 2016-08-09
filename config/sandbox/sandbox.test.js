@@ -19,5 +19,8 @@ module.exports = {
     'iconv',
     'colors',
     'zipStream',
+
+    // Additional modules
+    'bcrypt'
   ]
 };

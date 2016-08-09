@@ -32,6 +32,7 @@
     //'geoip',
     //'nodemailer',
     //'request',
+    'bcrypt',
 
     // Passport providers
     //'passport',         // npm install passport

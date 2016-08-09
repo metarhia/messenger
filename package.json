@@ -6,7 +6,8 @@
   "scripts": {
     "test": "node tests/run.js",
     "build": "node applications/messenger/client/scripts/build.js",
-    "dev": "node applications/messenger/client/scripts/start.js"
+    "dev": "node applications/messenger/client/scripts/start.js",
+    "cli": "node cli/app.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
   "homepage": "https://github.com/metarhia/Messenger#readme",
   "private": true,
   "dependencies": {
+    "bcrypt": "^0.8.7",
     "impress": "^0.3.11",
     "mongodb": "^2.2.4"
   },
