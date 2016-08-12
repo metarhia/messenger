@@ -35,6 +35,7 @@ const store = configureStore({
     }
   ]
 });
+
 const history = syncHistoryWithStore(browserHistory, store);
 
 ReactDOM.render(
