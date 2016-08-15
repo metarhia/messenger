@@ -25,7 +25,7 @@ api.auth.verify = (password, hashed, callback) => {
   api.bcrypt.compare(password, hashed, callback);
 };
 
-api.auth.signUp = (login, password, email, callback) => {
+api.auth.signUp = (login, password, name, email, callback) => {
   api.auth.hash(password, (err, hash) => {
     if (err) {
       return callback(err);
@@ -34,6 +34,7 @@ api.auth.signUp = (login, password, email, callback) => {
     var user = {
       login,
       hash,
+      name,
       email,
       active: true
     };

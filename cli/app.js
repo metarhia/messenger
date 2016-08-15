@@ -11,8 +11,8 @@ require('impress');
 var connection, rl
 
 var commands = {
-  signUp: (login, password, email, callback) => {
-    api.auth.signUp(login, password, email, (err, id) => {
+  signUp: (login, password, name, email, callback) => {
+    api.auth.signUp(login, password, name, email, (err, id) => {
       if (err) {
         console.log(err);
       } else {

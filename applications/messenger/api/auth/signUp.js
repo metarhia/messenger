@@ -1,5 +1,5 @@
-(login, password, email, callback) => {
-  api.auth.signUp(login, password, email, (err, user) => {
+(login, password, name, email, callback) => {
+  api.auth.signUp(login, password, name, email, (err, user) => {
     if (err) {
       return callback(new api.jstp.RemoteError(20, 'Registration failed'));
     }
