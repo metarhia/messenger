@@ -51,6 +51,10 @@ api.auth.signUp = (login, password, email, callback) => {
 };
 
 api.auth.signIn = (connection, login, password, callback) => {
+  if (connection.isAuthenticated) {
+    return callback(false);
+  }
+
   var db = api.auth.config.database;
   db.users.findOne({ login }, (err, user) => {
     if (err || !user) {
