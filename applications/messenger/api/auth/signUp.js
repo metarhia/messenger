@@ -3,9 +3,9 @@
     if (err) {
       return callback(new api.jstp.RemoteError(20, 'Registration failed'));
     }
-    api.auth.signIn(connection, login, password, (success) => {
-      if (!success) {
-        return callback(api.jstp.RemoteError.AUTH_FAILED);
+    api.auth.signIn(connection, login, password, (err) => {
+      if (err) {
+        return callback(err);
       }
       callback(null, user.id);
     });

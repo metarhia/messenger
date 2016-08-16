@@ -56,27 +56,27 @@ api.auth.signUp = (login, password, name, email, callback) => {
 
 api.auth.signIn = (connection, login, password, callback) => {
   if (connection.isAuthenticated) {
-    return callback(false);
+    return callback(new Error('user is already authenticated'));
   }
 
   var db = api.auth.config.database;
   db.users.findOne({ login }, (err, user) => {
     if (err || !user) {
-      return callback(false);
+      return callback(new Error('user not found'));
     }
 
     if (!user.active) {
-      return callback(false);
+      return callback(new Error('user is not active'));
     }
 
     api.auth.verify(password, user.hash, (err, success) => {
-      if (err) {
-        return callback(false);
+      if (err || !success) {
+        return callback('incorrect password');
       }
 
       connection.isAuthenticated = true;
       connection.user = user;
-      callback(success);
+      callback(null, user);
     });
   });
 };
