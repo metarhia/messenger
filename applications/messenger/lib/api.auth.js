@@ -44,8 +44,11 @@ api.auth.signUp = (login, password, name, email, callback) => {
       if (err) {
         return callback(err);
       }
+
       var oid = result.ops[0]._id;
       user.id = oid.toString();
+
+      application.emit('newUser', user);
       callback(null, user);
     });
   });
