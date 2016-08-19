@@ -31,7 +31,7 @@ api.auth.signUp = (login, password, name, email, callback) => {
       return callback(err);
     }
 
-    var user = {
+    let user = {
       login,
       hash,
       name,
@@ -39,13 +39,13 @@ api.auth.signUp = (login, password, name, email, callback) => {
       active: true
     };
 
-    var db = api.auth.config.database;
+    let db = api.auth.config.database;
     db.users.insert(user, (err, result) => {
       if (err) {
         return callback(err);
       }
 
-      var oid = result.ops[0]._id;
+      let oid = result.ops[0]._id;
       user.id = oid.toString();
 
       application.emit('newUser', user);
@@ -59,7 +59,7 @@ api.auth.signIn = (connection, login, password, callback) => {
     return callback(new Error('user is already authenticated'));
   }
 
-  var db = api.auth.config.database;
+  let db = api.auth.config.database;
   db.users.findOne({ login }, (err, user) => {
     if (err || !user) {
       return callback(new Error('user not found'));
