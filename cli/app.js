@@ -3,6 +3,7 @@
 global.api = {};
 api.jstp = {};
 api.url = require('url');
+api.events = require('events');
 api.readline = require('readline');
 api.metasync = require('metasync');
 
@@ -55,9 +56,10 @@ var address = process.argv[2] || 'jstp://127.0.0.1:3000',
 console.log('Waiting for connection...');
 connection = api.jstp.connect('messenger', host, port, secure);
 
-connection.application = {};
+connection.application = new api.events.EventEmitter();
 connection.application.api = {
 };
+connection.application.connections = {};
 connection.application.sandbox = global;
 
 function fatal(message, error) {

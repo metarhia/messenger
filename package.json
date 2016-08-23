@@ -22,7 +22,7 @@
   "private": true,
   "dependencies": {
     "bcrypt": "^0.8.7",
-    "impress": "^0.3.11",
+    "impress": "^0.3.15",
     "mongodb": "^2.2.4"
   },
   "devDependencies": {
