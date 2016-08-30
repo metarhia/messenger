@@ -1,17 +1,17 @@
 'use strict';
 
-var path = require('path');
-var autoprefixer = require('autoprefixer');
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var FaviconsWebpackPlugin = require('favicons-webpack-plugin');
-var AssetsWebpackPlugin = require('assets-webpack-plugin');
+const path = require('path');
+const autoprefixer = require('autoprefixer');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const AssetsWebpackPlugin = require('assets-webpack-plugin');
 
-var srcPath = path.resolve(__dirname, '../src');
-var nodeModulesPath = path.join(__dirname, '../../../../node_modules');
-var indexHtmlPath = path.resolve(__dirname, '../index.html');
-var logoPath = path.resolve(__dirname, '../metarhia.png');
-var buildPath = path.join(__dirname, '../build');
+const srcPath = path.resolve(__dirname, '../src');
+const nodeModulesPath = path.join(__dirname, '../../../../node_modules');
+const indexHtmlPath = path.resolve(__dirname, '../index.html');
+const logoPath = path.resolve(__dirname, '../metarhia.png');
+const buildPath = path.join(__dirname, '../build');
 
 module.exports = {
   devtool: 'source-map',

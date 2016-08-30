@@ -2,22 +2,22 @@
 
 process.env.NODE_ENV = 'development';
 
-var path = require('path');
-var chalk = require('chalk');
-var webpack = require('webpack');
-var config = require('../config/webpack.config.dev');
-var execSync = require('child_process').execSync;
-var opn = require('opn');
-var placeFiles = require('./placeFiles');
+const path = require('path');
+const chalk = require('chalk');
+const webpack = require('webpack');
+const config = require('../config/webpack.config.dev');
+const execSync = require('child_process').execSync;
+const opn = require('opn');
+const placeFiles = require('./placeFiles');
 
-var buildDir = path.join(__dirname, '../build');
-var staticDir = path.join(__dirname, '../../static');
+const buildDir = path.join(__dirname, '../build');
+const staticDir = path.join(__dirname, '../../static');
 
-var developmentUrl = 'http://localhost:8080/';
+const developmentUrl = 'http://localhost:8080/';
 
 execSync('rm -rf ' + buildDir);
 
-var friendlySyntaxErrorLabel = 'Syntax error:';
+const friendlySyntaxErrorLabel = 'Syntax error:';
 
 function isLikelyASyntaxError(message) {
   return message.indexOf(friendlySyntaxErrorLabel) !== -1;
@@ -49,26 +49,26 @@ function clearConsole() {
   process.stdout.write('\x1B[2J\x1B[0f');
 }
 
-var compiler = webpack(config);
-compiler.plugin('invalid', function () {
+const compiler = webpack(config);
+compiler.plugin('invalid', () => {
   clearConsole();
   console.log('Compiling...');
 });
-compiler.plugin('done', function (stats) {
+compiler.plugin('done', (stats) => {
   clearConsole();
-  var hasErrors = stats.hasErrors();
-  var hasWarnings = stats.hasWarnings();
+  let hasErrors = stats.hasErrors();
+  let hasWarnings = stats.hasWarnings();
   if (!hasErrors && !hasWarnings) {
     console.log(chalk.green('Compiled successfully!'));
     console.log();
     return;
   }
 
-  var json = stats.toJson();
-  var formattedErrors = json.errors.map(message =>
+  let json = stats.toJson();
+  let formattedErrors = json.errors.map(message =>
     'Error in ' + formatMessage(message)
   );
-  var formattedWarnings = json.warnings.map(message =>
+  let formattedWarnings = json.warnings.map(message =>
     'Warning in ' + formatMessage(message)
   );
 
@@ -104,7 +104,7 @@ compiler.plugin('done', function (stats) {
 });
 
 function openBrowser(reloadAfterChange) {
-  var scriptName = reloadAfterChange ? 'reloadChrome'
+  let scriptName = reloadAfterChange ? 'reloadChrome'
                                      : 'openChrome';
   if (process.platform === 'darwin') {
     try {
@@ -129,16 +129,16 @@ function openBrowser(reloadAfterChange) {
   }
 }
 
-var firstCompile = true;
+let firstCompile = true;
 
 compiler.watch({
   aggregateTimeout: 300
-}, function(err, stats) {
+}, (err, stats) => {
   if (err || stats.hasErrors()) {
     return;
   }
-  placeFiles(function() {
-    setTimeout(function() {
+  placeFiles(() => {
+    setTimeout(() => {
       openBrowser(!firstCompile);
       firstCompile = false;
     }, 2000);

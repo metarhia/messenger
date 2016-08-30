@@ -5,7 +5,7 @@
 // In the future, we might create a separate list of rules for production.
 // It would probably be more strict.
 
-var WARNING = 1;
+const WARNING = 1;
 
 module.exports = {
   root: true,
